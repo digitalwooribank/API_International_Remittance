@@ -1,0 +1,493 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "UNOAPI Swagger Spec. JSON",
+    "version" : "1.0.0",
+    "title" : "UNOAPI"
+  },
+  "host" : "192.168.117.31:8080",
+  "basePath" : "/",
+  "tags" : [ {
+    "name" : "api-list",
+    "description" : "List of APIs"
+  } ],
+  "paths" : {
+    "/oai/wb/v1/remittance/getFrgnRemittanceList" : {
+      "post" : {
+        "tags" : [ "api-list" ],
+        "summary" : "해외송금내역조회",
+        "operationId" : "_oai_wb_v1_remittance_getFrgnRemittanceList",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "appkey",
+          "in" : "header",
+          "description" : "API Key(제휴사키)",
+          "required" : false
+        }, {
+          "name" : "authorization",
+          "in" : "header",
+          "description" : "인증토큰",
+          "required" : false
+        }, {
+          "name" : "itcsno",
+          "in" : "header",
+          "description" : "통합고객번호",
+          "required" : false
+        }, {
+          "name" : "ebnk_utzpe_no",
+          "in" : "header",
+          "description" : "전자뱅킹이용자번호",
+          "required" : false
+        }, {
+          "in" : "body",
+          "name" : "REQUEST",
+          "description" : "request body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/_oai_wb_v1_remittance_getFrgnRemittanceList_REQUEST_sohwchlfwo6e"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "BAD_REQUEST"
+          },
+          "404" : {
+            "description" : "NOT_FOUND"
+          },
+          "405" : {
+            "description" : "METHOD_NOT_ALLOWED"
+          },
+          "500" : {
+            "description" : "INTERNAL_SERVER_ERROR"
+          },
+          "503" : {
+            "description" : "SERVICE_UNAVAILABLE"
+          },
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/_oai_wb_v1_remittance_getFrgnRemittanceList_RESPONSE_vbn05g9s6p2e"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "_oai_wb_v1_remittance_getFrgnRemittanceList_REQUEST_sohwchlfwo6e" : {
+      "type" : "object",
+      "required" : [ "dataBody", "dataHeader" ],
+      "properties" : {
+        "dataHeader" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_remittance_getFrgnRemittanceList_dataHeader_1h7o64unkib77"
+        },
+        "dataBody" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_remittance_getFrgnRemittanceList_dataBody_uv94xmdfpaap"
+        }
+      }
+    },
+    "_oai_wb_v1_remittance_getFrgnRemittanceList_dataHeader_1h7o64unkib77" : {
+      "type" : "object",
+      "properties" : {
+        "UTZPE_CNCT_IPAD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속IP주소"
+        },
+        "UTZPE_CNCT_MCHR_UNQ_ID" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속기기고유ID"
+        },
+        "UTZPE_CNCT_TEL_NO_TXT" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속전화번호"
+        },
+        "UTZPE_CNCT_MCHR_IDF_SRNO" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속기기식별일련번호"
+        },
+        "UTZ_MCHR_OS_DSCD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용기기운영체계구분코드"
+        },
+        "UTZ_MCHR_OS_VER_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용기기운영체계버전명"
+        },
+        "UTZ_MCHR_MDL_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용기기모델명"
+        },
+        "UTZ_MCHR_APP_VER_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "앱 버전"
+        }
+      },
+      "description" : "response data header"
+    },
+    "_oai_wb_v1_remittance_getFrgnRemittanceList_dataBody_uv94xmdfpaap" : {
+      "type" : "object",
+      "required" : [ "FX_ACNO", "ITCSNO", "UTZPE_NO" ],
+      "properties" : {
+        "UTZPE_NO" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자번호"
+        },
+        "ITCSNO" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "통합고객번호"
+        },
+        "FX_ACNO" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "외환계좌번호"
+        }
+      },
+      "description" : "response data header"
+    },
+    "_oai_wb_v1_remittance_getFrgnRemittanceList_RESPONSE_vbn05g9s6p2e" : {
+      "type" : "object",
+      "required" : [ "dataBody", "dataHeader" ],
+      "properties" : {
+        "dataHeader" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_remittance_getFrgnRemittanceList_dataHeader_qxtcg6039s2t"
+        },
+        "dataBody" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_remittance_getFrgnRemittanceList_dataBody_1ib6hyjgf3z37"
+        }
+      }
+    },
+    "_oai_wb_v1_remittance_getFrgnRemittanceList_dataHeader_qxtcg6039s2t" : {
+      "type" : "object",
+      "description" : "response data header"
+    },
+    "_oai_wb_v1_remittance_getFrgnRemittanceList_dataBody_1ib6hyjgf3z37" : {
+      "type" : "object",
+      "properties" : {
+        "FX_ACNO" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "외환계좌번호"
+        },
+        "TBRMT_DRFB_DT" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "당발송금취결일자"
+        },
+        "KRW_FC_TRN_DSCD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "원화외화거래구분코드"
+        },
+        "FC_LNK_BKW_ACNO" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "외화연동전행계좌번호"
+        },
+        "FC_TRF_AM" : {
+          "type" : "number",
+          "example" : "",
+          "description" : "외화대체금액"
+        },
+        "FC_TRF_XRT" : {
+          "type" : "number",
+          "example" : "",
+          "description" : "외화대체환율"
+        },
+        "FC_TRF_KRW_AM" : {
+          "type" : "number",
+          "example" : "",
+          "description" : "외화대체원화금액"
+        },
+        "KRW_LNK_BKW_ACNO" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "원화연동전행계좌번호"
+        },
+        "PSTN_FC_AM" : {
+          "type" : "number",
+          "example" : "",
+          "description" : "포지션외화금액"
+        },
+        "PSTN_XRT" : {
+          "type" : "number",
+          "example" : "",
+          "description" : "포지션환율"
+        },
+        "PSTN_KRXC_AM" : {
+          "type" : "number",
+          "example" : "",
+          "description" : "포지션원화환산금액"
+        },
+        "FEE_BKW_ACNO" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수수료전행계좌번호"
+        },
+        "LNK_SUM_AM" : {
+          "type" : "number",
+          "example" : "",
+          "description" : "연동합계금액"
+        },
+        "TBRMT_KD_DSCD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "당발송금종류구분코드"
+        },
+        "CUCD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "통화코드"
+        },
+        "RMT_FC_AM" : {
+          "type" : "number",
+          "example" : "",
+          "description" : "송금외화금액"
+        },
+        "CUS_APL_XRT" : {
+          "type" : "number",
+          "example" : "",
+          "description" : "고객적용환율"
+        },
+        "XRT_PRME_RT" : {
+          "type" : "number",
+          "example" : "",
+          "description" : "환율우대율"
+        },
+        "TLGFE" : {
+          "type" : "number",
+          "example" : "",
+          "description" : "전신료"
+        },
+        "RMT_FEE" : {
+          "type" : "number",
+          "example" : "",
+          "description" : "송금수수료"
+        },
+        "FEE_TRFE" : {
+          "type" : "number",
+          "example" : "",
+          "description" : "수수료대체료"
+        },
+        "FEE_CSH_AM" : {
+          "type" : "number",
+          "example" : "",
+          "description" : "수수료현찰금액"
+        },
+        "RMTPE_KORL_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "송금인한글명"
+        },
+        "RMTPE_NM_ENG" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "송금인명영문"
+        },
+        "RMTPE_TEL_NO" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "송금인전화번호"
+        },
+        "RMTPE_ADR_1_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "송금인주소1전문내용"
+        },
+        "RMTPE_ADR_2_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "송금인주소2전문내용"
+        },
+        "RNPE_NM_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취인명전문내용"
+        },
+        "RNPE_ENCY_ACNM_NO" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취인암호화실명번호"
+        },
+        "RNPE_ACT_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취인계좌전문내용"
+        },
+        "RNPE_TEL_NO" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취인전화번호"
+        },
+        "RNPE_ADR_1_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취인주소1전문내용"
+        },
+        "RNPE_ADR_2_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취인주소2전문내용"
+        },
+        "RNPE_ADR_3_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취인주소3전문내용"
+        },
+        "RNPE_RSD_NL" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취인거주국가"
+        },
+        "RCVG_BK_BIC_CD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취은행BIC코드"
+        },
+        "RCVG_BK_NM_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취은행명전문내용"
+        },
+        "RCVG_BK_ADR_1_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취은행주소1전문내용"
+        },
+        "RCVG_BK_ADR_2_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취은행주소2전문내용"
+        },
+        "RCVG_BK_ADR_3_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취은행주소3전문내용"
+        },
+        "STLBK_DEPO_CD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "결제은행DEPO코드"
+        },
+        "STLBK_DEPO_CD_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "결제은행DEPO코드명"
+        },
+        "TB_POFE_CHRPE_DIS_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "당발사후수수료부담자구분명"
+        },
+        "POFE_FC_AM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "사후수수료외화금액"
+        },
+        "RNPE_ADD_ORDS_1_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취인추가지시1전문내용"
+        },
+        "RNPE_ADD_ORDS_2_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취인추가지시2전문내용"
+        },
+        "MNBR_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "관리점명"
+        },
+        "RMT_PTN_NACD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "송금상대국가코드"
+        },
+        "RMT_NL_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "송금국가명"
+        },
+        "MTMS_DT" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "전문전송일자"
+        },
+        "TRN_DTM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "거래일시"
+        },
+        "FRG_BZ_BRCD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "해외영업점코드"
+        },
+        "PTNBK_BR_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "상대은행지점명"
+        },
+        "GRID_ROW_CNT" : {
+          "type" : "number",
+          "example" : "",
+          "description" : "그리드열건수"
+        },
+        "GRID" : {
+          "description" : "그리드",
+          "$ref" : "#/definitions/_oai_wb_v1_remittance_getFrgnRemittanceList_GRID_1hrs2ulm8bvq9"
+        }
+      },
+      "description" : "response data header"
+    },
+    "_oai_wb_v1_remittance_getFrgnRemittanceList_GRID_1hrs2ulm8bvq9" : {
+      "type" : "array",
+      "description" : "그리드",
+      "items" : {
+        "description" : "그리드",
+        "$ref" : "#/definitions/_oai_wb_v1_remittance_getFrgnRemittanceList_GRID_qdpxqeef3odu"
+      }
+    },
+    "_oai_wb_v1_remittance_getFrgnRemittanceList_GRID_qdpxqeef3odu" : {
+      "type" : "object",
+      "properties" : {
+        "CHS_STS" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "추적상태"
+        },
+        "PRC_DT" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "처리일자"
+        },
+        "RCVG_BK_NM_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취은행명전문내용"
+        },
+        "FRG_DRCC_ACTS_YN" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "해외직접계좌이체여부"
+        }
+      },
+      "description" : "그리드"
+    }
+  }
+}

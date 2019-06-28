@@ -1,0 +1,444 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "UNOAPI Swagger Spec. JSON",
+    "version" : "1.0.0",
+    "title" : "UNOAPI"
+  },
+  "host" : "192.168.70.55:8081",
+  "basePath" : "/",
+  "tags" : [ {
+    "name" : "api-list",
+    "description" : "List of APIs"
+  } ],
+  "paths" : {
+    "/oai/wb/v1/remittance/executeFrgnRemittance" : {
+      "post" : {
+        "tags" : [ "api-list" ],
+        "summary" : "해외송금실행",
+        "operationId" : "_oai_wb_v1_remittance_executeFrgnRemittance",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "appkey",
+          "in" : "header",
+          "description" : "API Key(제휴사키)",
+          "required" : false
+        }, {
+          "name" : "authorization",
+          "in" : "header",
+          "description" : "인증토큰",
+          "required" : false
+        }, {
+          "name" : "itcsno",
+          "in" : "header",
+          "description" : "통합고객번호",
+          "required" : false
+        }, {
+          "name" : "ebnk_utzpe_no",
+          "in" : "header",
+          "description" : "전자뱅킹이용자번호",
+          "required" : false
+        }, {
+          "in" : "body",
+          "name" : "REQUEST",
+          "description" : "request body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/_oai_wb_v1_remittance_executeFrgnRemittance_REQUEST_1jict5zhpbfqa"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "BAD_REQUEST"
+          },
+          "404" : {
+            "description" : "NOT_FOUND"
+          },
+          "405" : {
+            "description" : "METHOD_NOT_ALLOWED"
+          },
+          "500" : {
+            "description" : "INTERNAL_SERVER_ERROR"
+          },
+          "503" : {
+            "description" : "SERVICE_UNAVAILABLE"
+          },
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/_oai_wb_v1_remittance_executeFrgnRemittance_RESPONSE_1iauua03hfk8o"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "_oai_wb_v1_remittance_executeFrgnRemittance_REQUEST_1jict5zhpbfqa" : {
+      "type" : "object",
+      "required" : [ "dataBody", "dataHeader" ],
+      "properties" : {
+        "dataHeader" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_remittance_executeFrgnRemittance_dataHeader_1ib0ej8wqpf1i"
+        },
+        "dataBody" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_remittance_executeFrgnRemittance_dataBody_vbcdfj1lg21u"
+        }
+      }
+    },
+    "_oai_wb_v1_remittance_executeFrgnRemittance_dataHeader_1ib0ej8wqpf1i" : {
+      "type" : "object",
+      "properties" : {
+        "UTZPE_CNCT_IPAD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속IP주소"
+        },
+        "UTZPE_CNCT_MCHR_UNQ_ID" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속기기고유ID"
+        },
+        "UTZPE_CNCT_TEL_NO_TXT" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속전화번호"
+        },
+        "UTZPE_CNCT_MCHR_IDF_SRNO" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속기기식별일련번호"
+        },
+        "UTZ_MCHR_OS_DSCD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용기기운영체계구분코드"
+        },
+        "UTZ_MCHR_OS_VER_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용기기운영체계버전명"
+        },
+        "UTZ_MCHR_MDL_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용기기모델명"
+        },
+        "UTZ_MCHR_APP_VER_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "앱 버전"
+        }
+      },
+      "description" : "response data header"
+    },
+    "_oai_wb_v1_remittance_executeFrgnRemittance_dataBody_vbcdfj1lg21u" : {
+      "type" : "object",
+      "properties" : {
+        "WDR_ACNO" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "출금계좌번호"
+        },
+        "ENCY_ACT_PWNO" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "암호화계좌비밀번호"
+        },
+        "CUCD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "통화코드"
+        },
+        "RMT_FC_AM" : {
+          "type" : "number",
+          "example" : "",
+          "description" : "송금외화금액"
+        },
+        "RMTPE_KORL_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "송금인한글명"
+        },
+        "RMTPE_NM_ENG" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "송금인명영문"
+        },
+        "RMTPE_TEL_NO" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "송금인전화번호"
+        },
+        "RMTPE_ADR_1_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "송금인주소1전문내용"
+        },
+        "RMTPE_ADR_2_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "송금인주소2전문내용"
+        },
+        "RNPE_NM_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취인명전문내용"
+        },
+        "RNPE_ENCY_ACNM_NO" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취인암호화실명번호"
+        },
+        "RNPE_ACT_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취인계좌전문내용"
+        },
+        "RNPE_TEL_NO" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취인전화번호"
+        },
+        "RNPE_ADR_1_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취인주소1전문내용"
+        },
+        "RNPE_ADR_2_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취인주소2전문내용"
+        },
+        "RNPE_ADR_3_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취인주소3전문내용"
+        },
+        "RMT_PTN_NACD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "송금상대국가코드"
+        },
+        "RCVG_BK_BIC_CD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취은행BIC코드"
+        },
+        "RCVG_BK_NM_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취은행명전문내용"
+        },
+        "RCVG_BK_ADR_1_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취은행주소1전문내용"
+        },
+        "RCVG_BK_ADR_2_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취은행주소2전문내용"
+        },
+        "RCVG_BK_ADR_3_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취은행주소3전문내용"
+        },
+        "RNPE_ADD_ORDS_1_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취인추가지시1전문내용"
+        },
+        "RNPE_ADD_ORDS_2_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취인추가지시2전문내용"
+        },
+        "RMT_USCD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "송금용도코드"
+        },
+        "RMT_USG_RSN_TXT" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "송금용도사유내용"
+        }
+      },
+      "description" : "response data header"
+    },
+    "_oai_wb_v1_remittance_executeFrgnRemittance_RESPONSE_1iauua03hfk8o" : {
+      "type" : "object",
+      "required" : [ "dataBody", "dataHeader" ],
+      "properties" : {
+        "dataHeader" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_remittance_executeFrgnRemittance_dataHeader_ubp5vvuuhq9c"
+        },
+        "dataBody" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_remittance_executeFrgnRemittance_dataBody_rl8e5tzz6lic"
+        }
+      }
+    },
+    "_oai_wb_v1_remittance_executeFrgnRemittance_dataHeader_ubp5vvuuhq9c" : {
+      "type" : "object",
+      "description" : "response data header"
+    },
+    "_oai_wb_v1_remittance_executeFrgnRemittance_dataBody_rl8e5tzz6lic" : {
+      "type" : "object",
+      "properties" : {
+        "BAS_XRT" : {
+          "type" : "number",
+          "example" : "001169.90",
+          "description" : "기준환율"
+        },
+        "CUS_APL_XRT" : {
+          "type" : "number",
+          "example" : "001142.60",
+          "description" : "고객적용환율"
+        },
+        "XRT_PRME_RT" : {
+          "type" : "number",
+          "example" : "050.000",
+          "description" : "환율우대율"
+        },
+        "CUCD" : {
+          "type" : "string",
+          "example" : "USD",
+          "description" : "통화코드"
+        },
+        "RMT_FC_AM" : {
+          "type" : "number",
+          "example" :  "000000000000155.000",
+          "description" : "송금외화금액"
+        },
+        "RMT_KRW_AM" : {
+          "type" : "number",
+          "example" :  "000000000000177103",
+          "description" : "송금원화금액"
+        },
+        "TLGFE" : {
+          "type" : "number",
+          "example" : "000000000000000.000",
+          "description" : "전신료"
+        },
+        "RMT_FEE" : {
+          "type" : "number",
+          "example" : "000000000000000.000",
+          "description" : "송금수수료"
+        },
+        "FEE_TRFE" : {
+          "type" : "number",
+          "example" : "000000000000000.000",
+          "description" : "수수료대체료"
+        },
+        "FEE_CSH_AM" : {
+          "type" : "number",
+          "example" : "000000000000000.000",
+          "description" : "수수료현찰금액"
+        },
+        "RMTPE_KORL_NM" : {
+          "type" : "string",
+          "example" : "김순덕",
+          "description" : "송금인한글명"
+        },
+        "RMTPE_NM_ENG" : {
+          "type" : "string",
+          "example" : "SUNDUCK KIM",
+          "description" : "송금인명영문"
+        },
+        "RMTPE_TEL_NO" : {
+          "type" : "string",
+          "example" : "08101023741144",
+          "description" : "송금인전화번호"
+        },
+        "RMTPE_ADR_1_MSTX" : {
+          "type" : "string",
+          "example" : "8502 WOO SUNG APT25 DONG880HOSeocho",
+          "description" : "송금인주소1전문내용"
+        },
+        "RMTPE_ADR_2_MSTX" : {
+          "type" : "string",
+          "example" : "dong Seocho-g",
+          "description" : "송금인주소2전문내용"
+        },
+        "RNPE_NM_MSTX" : {
+          "type" : "string",
+          "example" : "NAEMEEE",
+          "description" : "수취인명전문내용"
+        },
+        "RNPE_ENCY_ACNM_NO" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취인암호화실명번호"
+        },
+        "RNPE_ACT_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취인계좌전문내용"
+        },
+        "RNPE_TEL_NO" : {
+          "type" : "string",
+          "example" : 001015531312"",
+          "description" : "수취인전화번호"
+        },
+        "RNPE_ADR_1_MSTX" : {
+          "type" : "string",
+          "example" : "155",
+          "description" : "수취인주소1전문내용"
+        },
+        "RNPE_ADR_2_MSTX" : {
+          "type" : "string",
+          "example" : "Ulti City Sanhose",
+          "description" : "수취인주소2전문내용"
+        },
+        "RNPE_ADR_3_MSTX" : {
+          "type" : "string",
+          "example" : "CA 55442 USA",
+          "description" : "수취인주소3전문내용"
+        },
+        "RMT_PTN_NACD" : {
+          "type" : "string",
+          "example" : "USA",
+          "description" : "송금상대국가코드"
+        },
+        "STLBK_DEPO_CD" : {
+          "type" : "string",
+          "example" : "020112",
+          "description" : "결제은행DEPO코드"
+        },
+        "RCVG_BK_BIC_CD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취은행BIC코드"
+        },
+        "RCVG_BK_NM_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취은행명전문내용"
+        },
+        "RCVG_BK_ADR_1_MSTX" : {
+          "type" : "string",
+          "example" : "Sanhose Bank of America",
+          "description" : "수취은행주소1전문내용"
+        },
+        "RCVG_BK_ADR_2_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취은행주소2전문내용"
+        },
+        "RCVG_BK_ADR_3_MSTX" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "수취은행주소3전문내용"
+        }
+      },
+      "description" : "response data header"
+    }
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "UNOAPI Swagger Spec. JSON",
+    "version" : "1.0.0",
+    "title" : "UNOAPI"
+  },
+  "host" : "192.168.70.55:8081",
+  "basePath" : "/",
+  "tags" : [ {
+    "name" : "api-list",
+    "description" : "List of APIs"
+  } ],
+  "paths" : {
+    "/oai/wb/v1/remittance/getFrgnRemittanceSumAm" : {
+      "post" : {
+        "tags" : [ "api-list" ],
+        "summary" : "해외송금합계금액조회",
+        "operationId" : "_oai_wb_v1_remittance_getFrgnRemittanceSumAm",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "appkey",
+          "in" : "header",
+          "description" : "API Key(제휴사키)",
+          "required" : false
+        }, {
+          "name" : "authorization",
+          "in" : "header",
+          "description" : "인증토큰",
+          "required" : false
+        }, {
+          "name" : "itcsno",
+          "in" : "header",
+          "description" : "통합고객번호",
+          "required" : false
+        }, {
+          "name" : "ebnk_utzpe_no",
+          "in" : "header",
+          "description" : "전자뱅킹이용자번호",
+          "required" : false
+        }, {
+          "in" : "body",
+          "name" : "REQUEST",
+          "description" : "request body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/_oai_wb_v1_remittance_getFrgnRemittanceSumAm_REQUEST_1k2296p921krp"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "BAD_REQUEST"
+          },
+          "404" : {
+            "description" : "NOT_FOUND"
+          },
+          "405" : {
+            "description" : "METHOD_NOT_ALLOWED"
+          },
+          "500" : {
+            "description" : "INTERNAL_SERVER_ERROR"
+          },
+          "503" : {
+            "description" : "SERVICE_UNAVAILABLE"
+          },
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/_oai_wb_v1_remittance_getFrgnRemittanceSumAm_RESPONSE_1jxzxq74iptmb"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "_oai_wb_v1_remittance_getFrgnRemittanceSumAm_REQUEST_1k2296p921krp" : {
+      "type" : "object",
+      "required" : [ "dataBody", "dataHeader" ],
+      "properties" : {
+        "dataHeader" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_remittance_getFrgnRemittanceSumAm_dataHeader_s13axqyzrgab"
+        },
+        "dataBody" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_remittance_getFrgnRemittanceSumAm_dataBody_trqu9unav8z4"
+        }
+      }
+    },
+    "_oai_wb_v1_remittance_getFrgnRemittanceSumAm_dataHeader_s13axqyzrgab" : {
+      "type" : "object",
+      "properties" : {
+        "UTZPE_CNCT_IPAD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속IP주소"
+        },
+        "UTZPE_CNCT_MCHR_UNQ_ID" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속기기고유ID"
+        },
+        "UTZPE_CNCT_TEL_NO_TXT" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속전화번호"
+        },
+        "UTZPE_CNCT_MCHR_IDF_SRNO" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속기기식별일련번호"
+        },
+        "UTZ_MCHR_OS_DSCD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용기기운영체계구분코드"
+        },
+        "UTZ_MCHR_OS_VER_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용기기운영체계버전명"
+        },
+        "UTZ_MCHR_MDL_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용기기모델명"
+        },
+        "UTZ_MCHR_APP_VER_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "앱 버전"
+        }
+      },
+      "description" : "response data header"
+    },
+    "_oai_wb_v1_remittance_getFrgnRemittanceSumAm_dataBody_trqu9unav8z4" : {
+      "type" : "object",
+      "properties" : {
+        "FXBK_DGN_CD" : {
+          "type" : "string",
+          "example" : "01",
+          "description" : "외국환은행지정코드"
+        }
+      },
+      "description" : "response data header"
+    },
+    "_oai_wb_v1_remittance_getFrgnRemittanceSumAm_RESPONSE_1jxzxq74iptmb" : {
+      "type" : "object",
+      "required" : [ "dataBody", "dataHeader" ],
+      "properties" : {
+        "dataHeader" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_remittance_getFrgnRemittanceSumAm_dataHeader_us3h0kd4h9id"
+        },
+        "dataBody" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_remittance_getFrgnRemittanceSumAm_dataBody_1iukcyejz86d5"
+        }
+      }
+    },
+    "_oai_wb_v1_remittance_getFrgnRemittanceSumAm_dataHeader_us3h0kd4h9id" : {
+      "type" : "object",
+      "description" : "response data header"
+    },
+    "_oai_wb_v1_remittance_getFrgnRemittanceSumAm_dataBody_1iukcyejz86d5" : {
+      "type" : "object",
+      "properties" : {
+        "TRN_DSCD" : {
+          "type" : "string",
+          "example" : "1",
+          "description" : "거래구분코드"
+        },
+        "RMT_SUM_AM_1" : {
+          "type" : "number",
+          "example" : "000030000,00",
+          "description" : "송금합계금액_1"
+        },
+        "RMT_SUM_AM_2" : {
+          "type" : "number",
+          "example" : "",
+          "description" : "송금합계금액_2"
+        },
+        "RMT_SUM_AM_3" : {
+          "type" : "number",
+          "example" : "",
+          "description" : "송금합계금액_3"
+        },
+        "RMT_SUM_AM_4" : {
+          "type" : "number",
+          "example" : "",
+          "description" : "송금합계금액_4"
+        },
+        "RMTPE_NM_ENG" : {
+          "type" : "string",
+          "example" : "SUNDUCK KIM",
+          "description" : "송금인명영문"
+        },
+        "RMTPE_ENG_ADR" : {
+          "type" : "string",
+          "example" : "148-1 SAGAJUNG-RO TONGDAMUN-GU SEOUL KOREA",
+          "description" : "송금인영문주소"
+        }
+      },
+      "description" : "response data header"
+    }
+  }
+}
