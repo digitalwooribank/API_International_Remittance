@@ -1,7 +1,7 @@
 # API_International_Remittance (해외송금 API서비스)
 
 
-_2019년 06월 28일 (Ver 1.0) update for Wooribank API_
+_2021년 4월 21일 (Ver 0.3) update for Wooribank API_Hackathon
 
 > 해외송금 API서비스 관련 설명서
 
@@ -15,7 +15,8 @@ _2019년 06월 28일 (Ver 1.0) update for Wooribank API_
 
 ##### 1.2 해외송금 API 흐름도
 
-![alt text](transfer.png)
+![image](https://user-images.githubusercontent.com/51771396/115504444-ec768200-a2b2-11eb-8bc6-790876af30bb.png)
+
 
 
 
@@ -24,46 +25,48 @@ _2019년 06월 28일 (Ver 1.0) update for Wooribank API_
 
 ----------
 
-##### 2.1 계좌 조회 HTTP Request
+##### 2.1 해외송금실행 HTTP Request
 
 ```
-GET /oai/wb/v1/finance/getIndivAllAccInfo
+POST /oai/wb/v1/finance/getIndivAllAccInfo
 ```
 
 ##### 2.2 Response Example 
 
 ```json
 {
-	"dataHeader": {
-		
-	},
-	"dataBody": {
-		"GRID_CNT": 2,
-		"GRID": [{
-			"ACNO": "1002146788200",
-			"PDCD": "0020590000000",
-			"PRD_NM": "우리급여 저축예금",
-			"CUCD": "KRW",
-			"PBOK_BAL": 71888,
-			"WDR_AVL_AM": 0,
-			"NEW_DT": "20120604",
-			"LST_TRN_DT": "20190612",
-			"XPR_DT": "20190612",
-			"ADNT_RGS_YN": "N"
-		},
-		{
-			"ACNO": "1002160010529",
-			"PDCD": "0021650000000",
-			"PRD_NM": "우리꿈 저축예금",
-			"CUCD": "KRW",
-			"PBOK_BAL": 0,
-			"WDR_AVL_AM": 0,
-			"NEW_DT": "20190524",
-			"LST_TRN_DT": "20190524",
-			"XPR_DT": "20190524",
-			"ADNT_RGS_YN": "Y"
-		}]
-	}
+  "dataHeader": {},
+  "dataBody": {
+    "BAS_XRT": "001120.90",
+    "CUS_APL_XRT": "001141.60",
+    "XRT_PRME_RT": "050.000",
+    "CUCD": "USD",
+    "RMT_FC_AM": "8287.000",
+    "RMT_KRW_AM": "423935",
+    "TLGFE": "0.000",
+    "RMT_FEE": "0.000",
+    "FEE_TRFE": "0.000",
+    "FEE_CSH_AM": "0.000",
+    "RMTPE_KORL_NM": "홍길동",
+    "RMTPE_NM_ENG": "GILDONG HONG",
+    "RMTPE_TEL_NO": "08112345678",
+    "RMTPE_ADR_1_MSTX": "8502 ooo SUNG APT25 DONG000HOSeocho",
+    "RMTPE_ADR_2_MSTX": "dong Seocho-g",
+    "RNPE_NM_MSTX": "NAEMEEE",
+    "RNPE_ENCY_ACNM_NO": "",
+    "RNPE_ACT_MSTX": "",
+    "RNPE_TEL_NO": "001111111111",
+    "RNPE_ADR_1_MSTX": "155",
+    "RNPE_ADR_2_MSTX": "Ulti City Sanhose",
+    "RNPE_ADR_3_MSTX": "CA 00000 USA",
+    "RMT_PTN_NACD": "USA",
+    "STLBK_DEPO_CD": "020112",
+    "RCVG_BK_BIC_CD": "",
+    "RCVG_BK_NM_MSTX": "",
+    "RCVG_BK_ADR_1_MSTX": "Sanhose Bank of America",
+    "RCVG_BK_ADR_2_MSTX": "",
+    "RCVG_BK_ADR_3_MSTX": ""
+  }
 }
 ```
 
@@ -72,7 +75,7 @@ GET /oai/wb/v1/finance/getIndivAllAccInfo
 
 ----------
 
-우리은행 오픈API 연동 방식은 REST(Representational State Transfer) 방식에 따라 구현한다. HTTP Method 및 리소스에 대한 URL에 따라 Request와 Response 데이터 타입은 JSOM을 사용한다.
+우리은행 오픈API 연동 방식은 REST(Representational State Transfer) 방식에 따라 구현한다. HTTP Method 및 리소스에 대한 URL에 따라 Request와 Response 데이터 타입은 JSON을 사용한다.
 또한 HTTP 1.1 Spec 규격을 따른다.
 
 ##### 3.1 Resource URL
@@ -116,6 +119,7 @@ GET /oap/wb/v2/oauth/tokencheck HTTP/1.1
 Content-Type: Applicatin/x-www-form-urlencoded
 appKey: <APP Key>
 Authorization: Bearer <Access Token>
+hashVAL: <JSON Data Hash Value>
 …
 ```
 
