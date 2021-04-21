@@ -1,0 +1,198 @@
+
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Wooribank API, Wooribank Swagger Spec. JSON",
+    "version" : "1.0.0",
+    "title" : "Wooribank API"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "tags" : [ {
+    "name" : "List of APIs",
+    "description" : ""
+  } ],
+  "paths" : {
+    "/oai/wb/v1/remittance/getWithdrawAccnt" : {
+      "post" : {
+        "tags" : [ "List of APIs" ],
+        "summary" : "출금계좌조회",
+        "operationId" : "_oai_wb_v1_remittance_getWithdrawAccnt",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "appkey",
+          "in" : "header",
+          "description" : "API Key(제휴사키)",
+		  "type" : "string",
+          "required" : false
+        }, {
+          "name" : "authorization",
+          "in" : "header",
+          "description" : "인증토큰",
+		  "type" : "string",
+          "required" : false
+        }, {
+          "in" : "body",
+          "name" : "REQUEST",
+          "description" : "request body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/_oai_wb_v1_remittance_getWithdrawAccnt_REQUEST_qhnbq6qucmcx"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "BAD_REQUEST"
+          },
+          "404" : {
+            "description" : "NOT_FOUND"
+          },
+          "405" : {
+            "description" : "METHOD_NOT_ALLOWED"
+          },
+          "500" : {
+            "description" : "INTERNAL_SERVER_ERROR"
+          },
+          "503" : {
+            "description" : "SERVICE_UNAVAILABLE"
+          },
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/_oai_wb_v1_remittance_getWithdrawAccnt_RESPONSE_qe1360eejkmv"
+            }
+          }
+        }
+      }
+    }    
+  },
+  "definitions" : {
+    "_oai_wb_v1_remittance_getWithdrawAccnt_REQUEST_qhnbq6qucmcx" : {
+      "type" : "object",
+      "required" : [ "dataBody", "dataHeader" ],
+      "properties" : {
+        "dataHeader" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_remittance_getWithdrawAccnt_dataHeader_r17u0p2j3dx5"
+        },
+        "dataBody" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_remittance_getWithdrawAccnt_dataBody_1hr5bwzrhfhh0"
+        }
+      }
+    },
+    "_oai_wb_v1_remittance_getWithdrawAccnt_dataHeader_r17u0p2j3dx5" : {
+      "type" : "object",
+      "properties" : {
+        "UTZPE_CNCT_IPAD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속IP주소"
+        },
+        "UTZPE_CNCT_MCHR_UNQ_ID" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속기기고유ID"
+        },
+        "UTZPE_CNCT_TEL_NO_TXT" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속전화번호"
+        },
+        "UTZPE_CNCT_MCHR_IDF_SRNO" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용자접속기기식별일련번호"
+        },
+        "UTZ_MCHR_OS_DSCD" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용기기운영체계구분코드"
+        },
+        "UTZ_MCHR_OS_VER_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용기기운영체계버전명"
+        },
+        "UTZ_MCHR_MDL_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "이용기기모델명"
+        },
+        "UTZ_MCHR_APP_VER_NM" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "앱 버전"
+        }
+      },
+      "description" : "response data header"
+    },
+    "_oai_wb_v1_remittance_getWithdrawAccnt_dataBody_1hr5bwzrhfhh0" : {
+      "type" : "object",
+      "description" : "response data header"
+    },
+    "_oai_wb_v1_remittance_getWithdrawAccnt_RESPONSE_qe1360eejkmv" : {
+      "type" : "object",
+      "required" : [ "dataBody", "dataHeader" ],
+      "properties" : {
+        "dataHeader" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_remittance_getWithdrawAccnt_dataHeader_vbbupqbuafs6"
+        },
+        "dataBody" : {
+          "description" : "response data header",
+          "$ref" : "#/definitions/_oai_wb_v1_remittance_getWithdrawAccnt_dataBody_1iykhxmqgxs8j"
+        }
+      }
+    },
+    "_oai_wb_v1_remittance_getWithdrawAccnt_dataHeader_vbbupqbuafs6" : {
+      "type" : "object",
+      "description" : "response data header"
+    },
+    "_oai_wb_v1_remittance_getWithdrawAccnt_dataBody_1iykhxmqgxs8j" : {
+      "type" : "object",
+      "properties" : {
+        "GRID_CNT" : {
+          "type" : "number",
+          "example" : "1",
+          "description" : "계좌건수"
+        },
+        "GRID" : {
+          "description" : "계좌목록리스트",
+          "$ref" : "#/definitions/_oai_wb_v1_remittance_getWithdrawAccnt_GRID_rhaiy81x6rli"
+        }
+      },
+      "description" : "response data header"
+    },
+    "_oai_wb_v1_remittance_getWithdrawAccnt_GRID_rhaiy81x6rli" : {
+      "type" : "array",
+      "description" : "계좌목록리스트",
+      "items" : {
+        "description" : "계좌목록리스트",
+        "$ref" : "#/definitions/_oai_wb_v1_remittance_getWithdrawAccnt_GRID_qdvkplr9mb05"
+      }
+    },
+    "_oai_wb_v1_remittance_getWithdrawAccnt_GRID_qdvkplr9mb05" : {
+      "type" : "object",
+      "properties" : {
+        "ACNO" : {
+          "type" : "string",
+          "example" : "1002456******",
+          "description" : "계좌번호"
+        },
+        "PBOK_BAL" : {
+          "type" : "number",
+          "example" : "11630506.000",
+          "description" : "통장잔액"
+        },
+        "WDR_AVL_AM" : {
+          "type" : "number",
+          "example" : "11630506.000",
+          "description" : "출금가능금액"
+        }
+      },
+      "description" : "계좌목록리스트"
+    }
+  }
+}
